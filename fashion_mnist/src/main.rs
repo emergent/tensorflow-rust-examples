@@ -3,8 +3,8 @@ use image::io::Reader as ImageReader;
 use std::path::PathBuf;
 use tensorflow::{Graph, SavedModelBundle, SessionOptions, SessionRunArgs, Tensor};
 
-const MODEL_DIR: &str = "fashion_mnist/models";
-const IMAGE_FILE: &str = "fashion_mnist/images/Dress/0.png";
+const MODEL_DIR: &str = "models";
+const IMAGE_FILE: &str = "images/Dress/0.png";
 
 fn main() -> Result<()> {
     let path = PathBuf::from(MODEL_DIR);
