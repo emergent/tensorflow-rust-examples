@@ -1,2 +1,2 @@
 [workspace]
-members = ["fashion_mnist"]
+members = ["fashion_mnist","object_detection"]
