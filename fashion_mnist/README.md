@@ -1,4 +1,6 @@
-# Fashion MNIST
+# fmnist-sample in Rust
+
+Fashion MNIST classification sample using TensorFlow Rust bindings.
 
 ## Prerequisite
 
@@ -9,6 +11,14 @@ python generate.py
 
 ## Run
 
+### Test accuracy of the model
+
 ```shell
-cargo run
+cargo run -- test
+```
+
+### Classify a specified image
+
+```shell
+cargo run -- classify --file <file>
 ```
