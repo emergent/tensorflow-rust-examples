@@ -1,7 +1,7 @@
 use anyhow::{anyhow, ensure, Result};
+use clap::Parser;
 use image::io::Reader as ImageReader;
 use std::path::{Path, PathBuf};
-use structopt::StructOpt;
 use tensorflow::{Graph, SavedModelBundle, SessionOptions, SessionRunArgs, Tensor};
 
 const MODEL_DIR: &str = "models";
@@ -12,24 +12,24 @@ const LABELS: [&str; 10] = [
 
 type TestData = Vec<(image::DynamicImage, usize)>;
 
-#[derive(StructOpt, Debug)]
-#[structopt(name = "fmnist-sample")]
+#[derive(Parser, Debug)]
+#[clap(name = "fmnist-sample")]
 struct Opt {
-    #[structopt(subcommand)]
+    #[command(subcommand)]
     pub sub: Subcommands,
 }
 
-#[derive(StructOpt, Debug)]
+#[derive(Parser, Debug)]
 enum Subcommands {
     Test,
     Classify {
-        #[structopt(short, long)]
+        #[arg(short, long)]
         file: PathBuf,
     },
 }
 
 fn main() -> Result<()> {
-    let opt = Opt::from_args();
+    let opt = Opt::parse();
     match opt.sub {
         Subcommands::Test => test_accuracy()?,
         Subcommands::Classify { file } => classify(file)?,
