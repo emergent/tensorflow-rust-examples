@@ -1,6 +1,5 @@
 use anyhow::{anyhow, ensure, Result};
 use image::io::Reader as ImageReader;
-use image::GenericImageView;
 use std::path::PathBuf;
 use tensorflow::{Graph, SavedModelBundle, SessionOptions, SessionRunArgs, Tensor};
 

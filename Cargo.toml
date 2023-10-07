@@ -1,2 +1,3 @@
 [workspace]
-members = ["fashion_mnist","object_detection"]
+members = ["fashion_mnist", "object_detection"]
+resolver = "2"
